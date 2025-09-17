@@ -1,0 +1,518 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="importmap">{"imports":{"#entry":"/_nuxt/CwmBq-Is.js"}}</script>
+<title>go 项目框架及规范</title>
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::-ms-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;-webkit-box-sizing:border-box;box-sizing:border-box}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;-webkit-font-feature-settings:normal;font-feature-settings:normal;font-variation-settings:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}hr{border-top-width:.0625rem;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;-webkit-font-feature-settings:normal;font-feature-settings:normal;font-size:1em;font-variation-settings:normal}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;-webkit-font-feature-settings:inherit;font-feature-settings:inherit;font-size:100%;font-variation-settings:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-.125rem}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#9ca3af;opacity:1}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#9ca3af;opacity:1}input::-ms-input-placeholder,textarea::-ms-input-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}[hidden]:where(:not([hidden=until-found])){display:none}h1{text-decoration:none}.prose{color:var(--tw-prose-body);max-width:65ch}.prose :where(p):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where([class~=lead]):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-lead);font-size:1.25em;line-height:1.6;margin-bottom:1.2em;margin-top:1.2em}.prose :where(a):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-links);font-weight:500;text-decoration:underline}.prose :where(strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-bold);font-weight:600}.prose :where(a strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(blockquote strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(thead th strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(ol):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:decimal;margin-bottom:1.25em;margin-top:1.25em;-webkit-padding-start:1.625em;padding-inline-start:1.625em}.prose :where(ol[type=A]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=A s]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a s]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=I]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type=I s]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i s]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type="1"]):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:decimal}.prose :where(ul):not(:where([class~=not-prose],[class~=not-prose] *)){list-style-type:disc;margin-bottom:1.25em;margin-top:1.25em;-webkit-padding-start:1.625em;padding-inline-start:1.625em}.prose :where(ol>li):not(:where([class~=not-prose],[class~=not-prose] *))::marker{color:var(--tw-prose-counters);font-weight:400}.prose :where(ul>li):not(:where([class~=not-prose],[class~=not-prose] *))::marker{color:var(--tw-prose-bullets)}.prose :where(dt):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;margin-top:1.25em}.prose :where(hr):not(:where([class~=not-prose],[class~=not-prose] *)){border-color:var(--tw-prose-hr);border-top-width:.0625rem;margin-bottom:3em;margin-top:3em}.prose :where(blockquote):not(:where([class~=not-prose],[class~=not-prose] *)){border-inline-start-color:var(--tw-prose-quote-borders);border-inline-start-width:.25rem;color:var(--tw-prose-quotes);font-style:italic;font-weight:500;margin-bottom:1.6em;margin-top:1.6em;quotes:"“""”""‘""’";-webkit-padding-start:1em;padding-inline-start:1em}.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose],[class~=not-prose] *)):after{content:close-quote}.prose :where(h1):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-headings);font-size:2.25em;font-weight:800;line-height:1.1111111;margin-bottom:.8888889em;margin-top:0}.prose :where(h1 strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit;font-weight:900}.prose :where(h2):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.5em;font-weight:700;line-height:1.3333333;margin-bottom:1em;margin-top:2em}.prose :where(h2 strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit;font-weight:800}.prose :where(h3):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.25em;font-weight:600;line-height:1.6;margin-bottom:.6em;margin-top:1.6em}.prose :where(h3 strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit;font-weight:700}.prose :where(h4):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;line-height:1.5;margin-bottom:.5em;margin-top:1.5em}.prose :where(h4 strong):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit;font-weight:700}.prose :where(img):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(picture):not(:where([class~=not-prose],[class~=not-prose] *)){display:block;margin-bottom:2em;margin-top:2em}.prose :where(video):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(kbd):not(:where([class~=not-prose],[class~=not-prose] *)){border-radius:.3125rem;-webkit-box-shadow:0 0 0 .0625rem rgb(var(--tw-prose-kbd-shadows)/10%),0 .1875rem 0 rgb(var(--tw-prose-kbd-shadows)/10%);box-shadow:0 0 0 .0625rem rgb(var(--tw-prose-kbd-shadows)/10%),0 .1875rem rgb(var(--tw-prose-kbd-shadows)/10%);color:var(--tw-prose-kbd);font-family:inherit;font-size:.875em;font-weight:500;padding-top:.1875em;-webkit-padding-end:.375em;padding-inline-end:.375em;padding-bottom:.1875em;-webkit-padding-start:.375em;padding-inline-start:.375em}.prose :where(code):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-code);font-size:.875em;font-weight:600}.prose :where(code):not(:where([class~=not-prose],[class~=not-prose] *)):before{content:"`"}.prose :where(code):not(:where([class~=not-prose],[class~=not-prose] *)):after{content:"`"}.prose :where(a code):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(h1 code):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(h2 code):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit;font-size:.875em}.prose :where(h3 code):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit;font-size:.9em}.prose :where(h4 code):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(blockquote code):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(thead th code):not(:where([class~=not-prose],[class~=not-prose] *)){color:inherit}.prose :where(pre):not(:where([class~=not-prose],[class~=not-prose] *)){background-color:var(--tw-prose-pre-bg);border-radius:.375rem;color:var(--tw-prose-pre-code);font-size:.875em;font-weight:400;line-height:1.7142857;margin-bottom:1.7142857em;margin-top:1.7142857em;overflow-x:auto;padding-top:.8571429em;-webkit-padding-end:1.1428571em;padding-inline-end:1.1428571em;padding-bottom:.8571429em;-webkit-padding-start:1.1428571em;padding-inline-start:1.1428571em}.prose :where(pre code):not(:where([class~=not-prose],[class~=not-prose] *)){background-color:transparent;border-radius:0;border-width:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;padding:0}.prose :where(pre code):not(:where([class~=not-prose],[class~=not-prose] *)):before{content:none}.prose :where(pre code):not(:where([class~=not-prose],[class~=not-prose] *)):after{content:none}.prose :where(table):not(:where([class~=not-prose],[class~=not-prose] *)){font-size:.875em;line-height:1.7142857;margin-bottom:2em;margin-top:2em;table-layout:auto;width:100%}.prose :where(thead):not(:where([class~=not-prose],[class~=not-prose] *)){border-bottom-color:var(--tw-prose-th-borders);border-bottom-width:.0625rem}.prose :where(thead th):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;vertical-align:bottom;-webkit-padding-end:.5714286em;padding-inline-end:.5714286em;padding-bottom:.5714286em;-webkit-padding-start:.5714286em;padding-inline-start:.5714286em}.prose :where(tbody tr):not(:where([class~=not-prose],[class~=not-prose] *)){border-bottom-color:var(--tw-prose-td-borders);border-bottom-width:.0625rem}.prose :where(tbody tr:last-child):not(:where([class~=not-prose],[class~=not-prose] *)){border-bottom-width:0}.prose :where(tbody td):not(:where([class~=not-prose],[class~=not-prose] *)){vertical-align:baseline}.prose :where(tfoot):not(:where([class~=not-prose],[class~=not-prose] *)){border-top-color:var(--tw-prose-th-borders);border-top-width:.0625rem}.prose :where(tfoot td):not(:where([class~=not-prose],[class~=not-prose] *)){vertical-align:top}.prose :where(th,td):not(:where([class~=not-prose],[class~=not-prose] *)){text-align:start}.prose :where(figure>*):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(figcaption):not(:where([class~=not-prose],[class~=not-prose] *)){color:var(--tw-prose-captions);font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose{--tw-prose-body:#180d02;--tw-prose-headings:#69413c;--tw-prose-lead:#4b5563;--tw-prose-links:#64311e;--tw-prose-bold:#111827;--tw-prose-counters:#6b7280;--tw-prose-bullets:#d1d5db;--tw-prose-hr:#e5e7eb;--tw-prose-quotes:#111827;--tw-prose-quote-borders:#ed9a8d;--tw-prose-captions:#6b7280;--tw-prose-kbd:#111827;--tw-prose-kbd-shadows:17 24 39;--tw-prose-code:#111827;--tw-prose-pre-code:#e5e7eb;--tw-prose-th-borders:#d1d5db;--tw-prose-td-borders:#e5e7eb;--tw-prose-invert-body:#d1d5db;--tw-prose-invert-headings:#fff;--tw-prose-invert-lead:#9ca3af;--tw-prose-invert-links:#fff;--tw-prose-invert-bold:#fff;--tw-prose-invert-counters:#9ca3af;--tw-prose-invert-bullets:#4b5563;--tw-prose-invert-hr:#374151;--tw-prose-invert-quotes:#f3f4f6;--tw-prose-invert-quote-borders:#374151;--tw-prose-invert-captions:#9ca3af;--tw-prose-invert-kbd:#fff;--tw-prose-invert-kbd-shadows:255 255 255;--tw-prose-invert-code:#fff;--tw-prose-invert-pre-code:#d1d5db;--tw-prose-invert-pre-bg:rgba(0,0,0,.5);--tw-prose-invert-th-borders:#4b5563;--tw-prose-invert-td-borders:#374151;font-size:1rem;line-height:1.75}.prose :where(picture>img):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(li):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:.5em;margin-top:.5em}.prose :where(ol>li):not(:where([class~=not-prose],[class~=not-prose] *)){-webkit-padding-start:.375em;padding-inline-start:.375em}.prose :where(ul>li):not(:where([class~=not-prose],[class~=not-prose] *)){-webkit-padding-start:.375em;padding-inline-start:.375em}.prose :where(.prose>ul>li p):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(.prose>ul>li>p:first-child):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:1.25em}.prose :where(.prose>ul>li>p:last-child):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:1.25em}.prose :where(.prose>ol>li>p:first-child):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:1.25em}.prose :where(.prose>ol>li>p:last-child):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:1.25em}.prose :where(ul ul,ul ol,ol ul,ol ol):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(dl):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where(dd):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:.5em;-webkit-padding-start:1.625em;padding-inline-start:1.625em}.prose :where(hr+*):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:0}.prose :where(h2+*):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:0}.prose :where(h3+*):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:0}.prose :where(h4+*):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:0}.prose :where(thead th:first-child):not(:where([class~=not-prose],[class~=not-prose] *)){-webkit-padding-start:0;padding-inline-start:0}.prose :where(thead th:last-child):not(:where([class~=not-prose],[class~=not-prose] *)){-webkit-padding-end:0;padding-inline-end:0}.prose :where(tbody td,tfoot td):not(:where([class~=not-prose],[class~=not-prose] *)){padding-top:.5714286em;-webkit-padding-end:.5714286em;padding-inline-end:.5714286em;padding-bottom:.5714286em;-webkit-padding-start:.5714286em;padding-inline-start:.5714286em}.prose :where(tbody td:first-child,tfoot td:first-child):not(:where([class~=not-prose],[class~=not-prose] *)){-webkit-padding-start:0;padding-inline-start:0}.prose :where(tbody td:last-child,tfoot td:last-child):not(:where([class~=not-prose],[class~=not-prose] *)){-webkit-padding-end:0;padding-inline-end:0}.prose :where(figure):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(.prose>:first-child):not(:where([class~=not-prose],[class~=not-prose] *)){margin-top:0}.prose :where(.prose>:last-child):not(:where([class~=not-prose],[class~=not-prose] *)){margin-bottom:0}.static{position:static}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.bottom-\[10px\]{bottom:.625rem}.bottom-\[30px\]{bottom:1.875rem}.left-0{left:0}.left-\[1158px\]{left:72.375rem}.left-\[15px\]{left:.9375rem}.left-\[171px\]{left:10.6875rem}.left-\[176px\]{left:11rem}.left-\[19px\]{left:1.1875rem}.left-\[21px\]{left:1.3125rem}.left-\[24px\]{left:1.5rem}.left-\[25px\]{left:1.5625rem}.left-\[326px\]{left:20.375rem}.left-\[331px\]{left:20.6875rem}.left-\[40px\]{left:2.5rem}.left-\[45px\]{left:2.8125rem}.left-\[481px\]{left:30.0625rem}.left-\[484px\]{left:30.25rem}.left-\[50\%\]{left:50%}.left-\[644px\]{left:40.25rem}.left-\[980px\]{left:61.25rem}.right-\[15px\]{right:.9375rem}.right-\[21px\]{right:1.3125rem}.right-\[25px\]{right:1.5625rem}.right-\[644px\]{right:40.25rem}.right-\[980px\]{right:61.25rem}.top-0{top:0}.top-\[100px\]{top:6.25rem}.top-\[10px\]{top:.625rem}.top-\[177px\]{top:11.0625rem}.top-\[25px\]{top:1.5625rem}.top-\[3\.06px\]{top:.19125rem}.top-\[30px\]{top:1.875rem}.top-\[33\.65px\]{top:2.103125rem}.top-\[34\.67px\]{top:2.166875rem}.top-\[34px\]{top:2.125rem}.top-\[40px\]{top:2.5rem}.top-\[45px\]{top:2.8125rem}.top-\[62\.20px\]{top:3.8875rem}.top-\[64\.24px\]{top:4.015rem}.top-\[97\.86px\]{top:6.11625rem}.-z-10{z-index:-10}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.col-span-1{grid-column:span 1/span 1}.col-span-4{grid-column:span 4/span 4}.col-start-2{grid-column-start:2}.col-start-8{grid-column-start:8}.m-0{margin:0}.mx-auto{margin-left:auto;margin-right:auto}.my-20{margin-bottom:5rem;margin-top:5rem}.mb-1{margin-bottom:.25rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:.5rem}.mb-6{margin-bottom:1.5rem}.mb-\[140px\]{margin-bottom:8.75rem}.mb-\[20px\]{margin-bottom:1.25rem}.mb-\[60px\]{margin-bottom:3.75rem}.mb-\[70px\]{margin-bottom:4.375rem}.ml-4{margin-left:1rem}.ml-\[40px\]{margin-left:2.5rem}.mr-1{margin-right:.25rem}.mr-4{margin-right:1rem}.mr-7{margin-right:1.75rem}.mr-\[40px\]{margin-right:2.5rem}.mt-12{margin-top:3rem}.mt-20{margin-top:5rem}.mt-\[110px\]{margin-top:6.875rem}.mt-\[20px\]{margin-top:1.25rem}.mt-\[45px\]{margin-top:2.8125rem}.mt-\[8px\]{margin-top:.5rem}.line-clamp-1{-webkit-line-clamp:1}.line-clamp-1,.line-clamp-2{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical}.line-clamp-2{-webkit-line-clamp:2}.block{display:block}.flex{display:-webkit-box;display:-ms-flexbox;display:flex}.table{display:table}.grid{display:grid}.hidden{display:none}.aspect-\[4\/3\]{aspect-ratio:4/3}.aspect-square{aspect-ratio:1/1}.h-24{height:6rem}.h-36{height:9rem}.h-\[0px\]{height:0}.h-\[100px\]{height:6.25rem}.h-\[110\.12px\]{height:6.8825rem}.h-\[110px\]{height:6.875rem}.h-\[115\.22px\]{height:7.20125rem}.h-\[148\.86px\]{height:9.30375rem}.h-\[1920px\]{height:120rem}.h-\[240px\]{height:15rem}.h-\[2px\]{height:.125rem}.h-\[300px\]{height:18.75rem}.h-\[3px\]{height:.1875rem}.h-\[500px\]{height:31.25rem}.h-\[50px\]{height:3.125rem}.h-\[53\.02px\]{height:3.31375rem}.h-\[5px\]{height:.3125rem}.h-\[80px\]{height:5rem}.h-\[97\.88px\]{height:6.1175rem}.h-auto{height:auto}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-1\/2{width:50%}.w-1\/4{width:25%}.w-12{width:3rem}.w-16{width:4rem}.w-24{width:6rem}.w-3\/4{width:75%}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-\[100px\]{width:6.25rem}.w-\[1080px\]{width:67.5rem}.w-\[108px\]{width:6.75rem}.w-\[110px\]{width:6.875rem}.w-\[160px\]{width:10rem}.w-\[1920px\]{width:120rem}.w-\[240px\]{width:15rem}.w-\[400px\]{width:25rem}.w-\[545px\]{width:34.0625rem}.w-\[55px\]{width:3.4375rem}.w-\[58\.08px\]{width:3.63rem}.w-\[58px\]{width:3.625rem}.w-\[60px\]{width:3.75rem}.w-\[700px\]{width:43.75rem}.w-\[80px\]{width:5rem}.w-\[95px\]{width:5.9375rem}.w-\[97px\]{width:6.0625rem}.w-auto{width:auto}.w-full{width:100%}.max-w-4xl{max-width:56rem}.max-w-\[900px\]{max-width:56.25rem}.origin-top-left{-webkit-transform-origin:top left;-ms-transform-origin:top left;transform-origin:top left}.translate-x-\[-50\%\]{--tw-translate-x:-50%}.-rotate-45,.translate-x-\[-50\%\]{-webkit-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));-ms-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-rotate-45{--tw-rotate:-45deg}.-rotate-90{--tw-rotate:-90deg}.-rotate-90,.rotate-180{-webkit-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));-ms-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-180{--tw-rotate:180deg}.transform{-webkit-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));-ms-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.resize{resize:both}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.flex-row{-webkit-box-orient:horizontal;-ms-flex-direction:row;flex-direction:row}.flex-col,.flex-row{-webkit-box-direction:normal}.flex-col{-webkit-box-orient:vertical;-ms-flex-direction:column;flex-direction:column}.items-start{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.items-center{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.justify-start{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}.justify-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.justify-between{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.justify-items-center{justify-items:center}.gap-\[40px\]{gap:2.5rem}.space-x-5>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-left:calc(1.25rem*(1 - var(--tw-space-x-reverse)));margin-right:calc(1.25rem*var(--tw-space-x-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-bottom:calc(2rem*var(--tw-space-y-reverse));margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)))}.self-start{-ms-flex-item-align:start;align-self:flex-start}.self-center{-ms-flex-item-align:center;align-self:center}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.text-nowrap{text-wrap:nowrap}.break-all{word-break:break-all}.rounded-\[54px\]{border-radius:3.375rem}.rounded-full{border-radius:624.9375rem}.rounded-lg{border-radius:.5rem}.border{border-width:.0625rem}.border-2{border-width:.125rem}.border-4{border-width:.25rem}.border-\[2px\]{border-width:.125rem}.border-x-0{border-left-width:0;border-right-width:0}.border-dashed{border-style:dashed}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0/var(--tw-border-opacity,1))}.border-cocoa-700{--tw-border-opacity:1;border-color:rgb(149 94 75/var(--tw-border-opacity,1))}.border-yellow-900{--tw-border-opacity:1;border-color:rgb(113 63 18/var(--tw-border-opacity,1))}.border-opacity-40{--tw-border-opacity:.4}.bg-\[\#64311E\]{--tw-bg-opacity:1;background-color:rgb(100 49 30/var(--tw-bg-opacity,1))}.bg-\[\#B26F55\]{--tw-bg-opacity:1;background-color:rgb(178 111 85/var(--tw-bg-opacity,1))}.bg-\[\#B89C92\]{--tw-bg-opacity:1;background-color:rgb(184 156 146/var(--tw-bg-opacity,1))}.bg-\[\#FEF0EB\]{--tw-bg-opacity:1;background-color:rgb(254 240 235/var(--tw-bg-opacity,1))}.bg-\[\#FFE9E1\]{--tw-bg-opacity:1;background-color:rgb(255 233 225/var(--tw-bg-opacity,1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244/var(--tw-bg-opacity,1))}.bg-stone-500{--tw-bg-opacity:1;background-color:rgb(120 113 108/var(--tw-bg-opacity,1))}.bg-opacity-60{--tw-bg-opacity:.6}.object-cover{-o-object-fit:cover;object-fit:cover}.p-4{padding:1rem}.py-4{padding-bottom:1rem;padding-top:1rem}.text-left{text-align:left}.text-justify{text-align:justify}.font-\[\'STKaiti\'\]{font-family:STKaiti}.font-\[\'STXingkai\'\]{font-family:STXingkai}.font-beau-rivage{font-family:BeauRivage-Regular}.font-lxgw-bold{font-family:LXGWWenKai-Bold}.font-lxgw-light{font-family:LXGWWenKai-Light}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[14px\]{font-size:.875rem}.text-\[18px\]{font-size:1.125rem}.text-\[20px\]{font-size:1.25rem}.text-\[24px\]{font-size:1.5rem}.text-\[28px\]{font-size:1.75rem}.text-\[32px\]{font-size:2rem}.text-\[36px\]{font-size:2.25rem}.text-\[48px\]{font-size:3rem}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-normal{font-weight:400}.italic{font-style:italic}.leading-\[52px\]{line-height:3.25rem}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-\[\#64311E\]{--tw-text-opacity:1;color:rgb(100 49 30/var(--tw-text-opacity,1))}.text-\[\#FFE9E1\]{--tw-text-opacity:1;color:rgb(255 233 225/var(--tw-text-opacity,1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.text-cocoa-600{--tw-text-opacity:1;color:rgb(191 156 142/var(--tw-text-opacity,1))}.text-cocoa-700{--tw-text-opacity:1;color:rgb(149 94 75/var(--tw-text-opacity,1))}.text-cocoa-800{--tw-text-opacity:1;color:rgb(100 49 30/var(--tw-text-opacity,1))}.text-cocoa-900{--tw-text-opacity:1;color:rgb(74 31 15/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68/var(--tw-text-opacity,1))}.text-yellow-900{--tw-text-opacity:1;color:rgb(113 63 18/var(--tw-text-opacity,1))}.opacity-90{opacity:.9}.opacity-\[27\%\]{opacity:27%}.opacity-\[31\%\]{opacity:31%}.shadow{--tw-shadow:0 .0625rem .1875rem 0 rgba(0,0,0,.1),0 .0625rem .125rem -.0625rem rgba(0,0,0,.1);--tw-shadow-colored:0 .0625rem .1875rem 0 var(--tw-shadow-color),0 .0625rem .125rem -.0625rem var(--tw-shadow-color);-webkit-box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.brightness-95{--tw-brightness:brightness(.95)}.brightness-95,.invert{-webkit-filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.invert{--tw-invert:invert(100%)}.filter{-webkit-filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,backdrop-filter,-webkit-box-shadow,-webkit-transform,-webkit-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,backdrop-filter,-webkit-box-shadow,-webkit-transform,-webkit-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-box-shadow,-webkit-transform,-webkit-filter;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1)}.transition-all{-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-property:all;transition-property:all;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-500{-webkit-transition-duration:.5s;transition-duration:.5s}.ease-in-out{-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1)}.\[border-bottom-width\:0\]{border-bottom-width:0}.\[white-space\:pre-wrap\]{white-space:pre-wrap}.\[writing-mode\:vertical-rl\]{-webkit-writing-mode:vertical-rl;-ms-writing-mode:tb-rl;writing-mode:vertical-rl}@font-face{font-family:LXGWWenKai-Bold;src:url(/fonts/LXGWWenKai-Bold.ttf) format("truetype")}@font-face{font-family:LXGWWenKai-Light;src:url(/fonts/LXGWWenKai-Light.ttf) format("truetype")}@font-face{font-family:LXGWWenKai-Regular;src:url(/fonts/LXGWWenKai-Regular.ttf) format("truetype")}@font-face{font-family:BeauRivage-Regular;src:url(/fonts/BeauRivage-Regular.ttf) format("truetype")}.hover\:-translate-x-3:hover{--tw-translate-x:-.75rem}.hover\:-translate-x-3:hover,.hover\:scale-\[1\.1\]:hover{-webkit-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));-ms-transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.1\]:hover{--tw-scale-x:1.1;--tw-scale-y:1.1}.hover\:border-yellow-900:hover{--tw-border-opacity:1;border-color:rgb(113 63 18/var(--tw-border-opacity,1))}.hover\:bg-cocoa-700:hover{--tw-bg-opacity:1;background-color:rgb(149 94 75/var(--tw-bg-opacity,1))}.hover\:bg-cocoa-800:hover{--tw-bg-opacity:1;background-color:rgb(100 49 30/var(--tw-bg-opacity,1))}.hover\:bg-opacity-50:hover{--tw-bg-opacity:.5}.hover\:bg-opacity-60:hover{--tw-bg-opacity:.6}.hover\:text-cocoa-400:hover{--tw-text-opacity:1;color:rgb(237 154 141/var(--tw-text-opacity,1))}.hover\:text-yellow-900:hover{--tw-text-opacity:1;color:rgb(113 63 18/var(--tw-text-opacity,1))}.group:hover .group-hover\:text-cocoa-200{--tw-text-opacity:1;color:rgb(243 230 200/var(--tw-text-opacity,1))}.group:hover .group-hover\:text-cocoa-300{--tw-text-opacity:1;color:rgb(254 225 193/var(--tw-text-opacity,1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.prose-h2\:font-\[STKaiti\] :is(:where(h2):not(:where([class~=not-prose],[class~=not-prose] *))){font-family:STKaiti}.prose-h2\:text-\[36px\] :is(:where(h2):not(:where([class~=not-prose],[class~=not-prose] *))){font-size:2.25rem}.prose-h2\:no-underline :is(:where(h2):not(:where([class~=not-prose],[class~=not-prose] *))){text-decoration-line:none}.hover\:prose-h2\:no-underline :is(:where(h2):not(:where([class~=not-prose],[class~=not-prose] *))):hover{text-decoration-line:none}.prose-p\:text-justify :is(:where(p):not(:where([class~=not-prose],[class~=not-prose] *))){text-align:justify}.prose-p\:text-\[24px\] :is(:where(p):not(:where([class~=not-prose],[class~=not-prose] *))){font-size:1.5rem}.prose-a\:text-cocoa-600 :is(:where(a):not(:where([class~=not-prose],[class~=not-prose] *))){--tw-text-opacity:1;color:rgb(191 156 142/var(--tw-text-opacity,1))}.prose-a\:text-cocoa-700 :is(:where(a):not(:where([class~=not-prose],[class~=not-prose] *))){--tw-text-opacity:1;color:rgb(149 94 75/var(--tw-text-opacity,1))}.prose-a\:no-underline :is(:where(a):not(:where([class~=not-prose],[class~=not-prose] *))){text-decoration-line:none}.hover\:prose-a\:text-cocoa-950 :is(:where(a):not(:where([class~=not-prose],[class~=not-prose] *))):hover{--tw-text-opacity:1;color:rgb(181 0 31/var(--tw-text-opacity,1))}.hover\:prose-a\:underline :is(:where(a):not(:where([class~=not-prose],[class~=not-prose] *))):hover{text-decoration-line:underline}.prose-blockquote\:text-\[20px\] :is(:where(blockquote):not(:where([class~=not-prose],[class~=not-prose] *))){font-size:1.25rem}.prose-code\:text-\[22px\] :is(:where(code):not(:where([class~=not-prose],[class~=not-prose] *))){font-size:1.375rem}.prose-code\:text-cocoa-700 :is(:where(code):not(:where([class~=not-prose],[class~=not-prose] *))){--tw-text-opacity:1;color:rgb(149 94 75/var(--tw-text-opacity,1))}.prose-code\:text-lime-600 :is(:where(code):not(:where([class~=not-prose],[class~=not-prose] *))){--tw-text-opacity:1;color:rgb(101 163 13/var(--tw-text-opacity,1))}.prose-code\:before\:content-none :is(:where(code):not(:where([class~=not-prose],[class~=not-prose] *))):before{--tw-content:none;content:var(--tw-content)}.prose-code\:after\:content-none :is(:where(code):not(:where([class~=not-prose],[class~=not-prose] *))):after{--tw-content:none;content:var(--tw-content)}</style>
+<style>/*!
+  Theme: OneDark
+  Author: Lalit Magant (http://github.com/tilal6991)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:.1875rem .3125rem}.hljs{background:#282c34;color:#abb2bf}.hljs ::-moz-selection,.hljs::-moz-selection{background-color:#3e4451;color:#abb2bf}.hljs ::selection,.hljs::selection{background-color:#3e4451;color:#abb2bf}.hljs-comment{color:#545862}.hljs-tag{color:#565c64}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#abb2bf}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#e06c75}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#d19a66}.hljs-class .hljs-title,.hljs-strong,.hljs-title,.hljs-title.class_{color:#e5c07b}.hljs-strong{font-weight:700}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#98c379}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#56b6c2}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#61afef}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#c678dd}.hljs-emphasis{color:#c678dd;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#be5046}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}</style>
+<style>.active{--tw-text-opacity:1;color:rgb(100 49 30/var(--tw-text-opacity,1))}.active_line{height:.1875rem;width:3.75rem;--tw-bg-opacity:1;background-color:rgb(100 49 30/var(--tw-bg-opacity,1))}</style>
+<style>pre code .line{display:block;min-height:1rem}</style>
+<link rel="stylesheet" href="/_nuxt/entry.D5BvXD_m.css" crossorigin>
+<link rel="stylesheet" href="/_nuxt/default.6dp6s_dK.css" crossorigin>
+<link rel="stylesheet" href="/_nuxt/ProsePre.B_fgAJq0.css" crossorigin>
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CwmBq-Is.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DoxGNRsG.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BH3As0M7.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CTfBuEtP.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/D85uACeh.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CqDhY2X1.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BSZFgSs5.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/B8IaAclc.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CB0qacqr.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BYv057UK.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/XNMtpn-M.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/Cgu337ZW.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/BC9i6gLq.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DQJXvQWr.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DGkyW-TE.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DvSpzv2p.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CkgQk2oE.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/DLZObSHu.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CP9MGa0r.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/CZybFE4y.js">
+<link rel="modulepreload" as="script" crossorigin href="/_nuxt/Cxo-2gY5.js">
+<link rel="preload" as="fetch" fetchpriority="low" crossorigin="anonymous" href="/_nuxt/builds/meta/9dcb8f7a-67a6-4558-a09e-619b477e7690.json">
+<meta property="og:title" content="go 项目框架及规范">
+<meta name="description" content="个人觉得比较不错的规范，四处偷师得来的">
+<meta property="og:description" content="个人觉得比较不错的规范，四处偷师得来的">
+<script type="module" src="/_nuxt/CwmBq-Is.js" crossorigin></script></head><body><div id="__nuxt"><div class="bg-[#FEF0EB] min-h-screen"><div class="flex flex-col justify-center"><div class="sticky m-0 top-0 mb-[70px] z-20"><div class="w-full h-[100px] left-0 top-0 absolute bg-[#B89C92] opacity-90 -z-10"></div><div class="w-full h-[50px] left-0 top-[100px] absolute bg-[#FEF0EB] opacity-90 -z-10"></div><img src="/img/chiya1.png" class="w-[110px] h-[110px] left-[45px] top-[45px] absolute z-20"><div class="grid grid-cols-12 mt-[45px] z-20"><div class="col-start-8 col-span-1"><a href="/" class=""><div class="grid grid-cols-1 justify-items-center group"><p class="text-[32px] leading-[52px] font-[&#39;STXingkai&#39;]">首页</p><div class="active_line" style="display:none;"></div><p class="text-[24px] leading-[52px] font-beau-rivage">Home</p></div></a></div><div class=""><a href="/essay" class=""><div class="grid grid-cols-1 justify-items-center"><p class="text-[32px] leading-[52px] font-[&#39;STXingkai&#39;]">文稿</p><div class="active_line" style="display:none;"></div><p class="text-[24px] leading-[52px] font-beau-rivage">Essay</p></div></a></div><div class=""><a href="/friend" class=""><div class="grid grid-cols-1 justify-items-center"><p class="text-[32px] leading-[52px] font-[&#39;STXingkai&#39;]">友邻</p><div class="active_line" style="display:none;"></div><p class="text-[24px] leading-[52px] font-beau-rivage">Friend</p></div></a></div><a href="/interest" class=""><div class="grid grid-cols-1 justify-items-center"><p class="text-[32px] leading-[52px] font-[&#39;STXingkai&#39;]">兴趣</p><div class="active_line" style="display:none;"></div><p class="text-[24px] leading-[52px] font-beau-rivage">Interest</p></div></a></div></div><!--[--><main><!--[--><article class="flex flex-col items-center"><h1 class="mb-6 text-[48px] font-[&#39;STKaiti&#39;]">go 项目框架及规范</h1><div class="text-left"><div class="mb-12 flex justify-start"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="w-6 mr-1"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"></path></svg><p class="font-lxgw-light text-[18px]">2023-06-15 10:32:44</p><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="w-6 ml-4 mr-1"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"></path></svg><p class="font-lxgw-light text-[18px]">技术</p></div></div><div class="prose max-w-[900px] prose-code:before:content-none prose-code:after:content-none prose-code:text-[22px] prose-code:text-lime-600 prose-a:no-underline hover:prose-a:underline prose-a:text-cocoa-600 hover:prose-a:text-cocoa-950 prose-h2:font-[STKaiti] prose-h2:text-[36px] font-lxgw-light prose-p:text-[24px] prose-p:text-justify prose-blockquote:text-[20px]"><p><!--[-->个人觉得比较不错的规范，四处偷师得来的<!--]--></p><h1 id="项目结构与分层"><!--[-->项目结构与分层<!--]--></h1><!--[--><pre class="language-bash" style=""><!--[--><code>├─controller
+├─dao
+│  ├─mysql
+│  └─redis
+├─logger
+├─logic
+├─middlewares
+├─models
+├─utils
+│  ├─jwt
+│  └─snowflake
+├─routes
+└─settings
+</code><!--]--></pre><!--]--><p><!--[--><code class=""><!--[-->controller<!--]--></code>: 请求处理与参数校验
+<code class=""><!--[-->logic<!--]--></code>: 业务逻辑的实现，也叫 service 层
+<code class=""><!--[-->dao<!--]--></code>: 对数据库的相关操作<!--]--></p><p><!--[--><code class=""><!--[-->model<!--]--></code>: 数据模型
+<code class=""><!--[-->routes<!--]--></code>: 路由接口
+<code class=""><!--[-->settings<!--]--></code>: 配置的加载
+<code class=""><!--[-->middlewares<!--]--></code>: 中间件
+<code class=""><!--[-->utils<!--]--></code>: 自定义功能的工具库，方便调用
+<code class=""><!--[-->logger<!--]--></code>: 日志库的封装<!--]--></p><p><!--[--><a href="https://github.com/foldleaf/go_web_template" rel="nofollow"><!--[-->项目地址<!--]--></a><!--]--></p><h1 id="配置文件的加载"><!--[-->配置文件的加载<!--]--></h1><p><!--[-->示例配置<!--]--></p><!--[--><pre class="language-yaml" style=""><!--[--><code>app:
+  name: &quot;web_app&quot;
+  mode: &quot;dev&quot;
+  port: 8081
+  start_time: &quot;2023-01-01&quot;
+  machine_id: 1
+
+log:
+  # 日志级别
+  level: &quot;debug&quot;
+  #文件名
+  filename: &quot;web_app.log&quot;
+  # 文件最大大小（M）
+  max_size: 200
+  # 文件最大保存天数
+  max_age: 30
+  # 文件备份数量
+  max_backups: 7
+  
+
+mysql:
+  host: &quot;127.0.0.1&quot;
+  port: 3306
+  user: &quot;root&quot;
+  password: &quot;mysql123&quot;
+  dbname: &quot;sql_demo&quot;
+  # 最大连接数
+  max_open_conns: 200
+  # 空闲连接数
+  max_idle_conns: 50
+
+
+redis:
+  host: &quot;127.0.0.1&quot;
+  port: 6379
+  password: &quot;&quot;
+  db: 0
+  pool_size: 100
+</code><!--]--></pre><!--]--><p><!--[-->使用viper加载配置<!--]--></p><!--[--><pre class="language-go" style=""><!--[--><code>package settings
+
+import (
+    &quot;fmt&quot;
+    &quot;github.com/fsnotify/fsnotify&quot;
+    &quot;github.com/spf13/viper&quot;
+)
+
+func Init() (err error) {
+    // viper.SetConfigFile(&quot;config.yaml&quot;)   //指定文件加后缀
+    viper.SetConfigName(&quot;config&quot;) // 指定配置文件名称，不需要带后缀，会自动识别指定目录下相同的文件名
+    viper.SetConfigType(&quot;yaml&quot;)   //指定配置文件类型，用于远程获取配置，本地时不生效
+    viper.AddConfigPath(&quot;.&quot;)      //指定查找配置文件的路径（这里用相对路径）
+    err = viper.ReadInConfig()    //读取文件配置
+    if err != nil {
+        // 读取配置信息失败
+        fmt.Println(&quot;viper.ReadInConfig() 读取配置信息失败:&quot;, err)
+        return
+    }
+
+    viper.WatchConfig()
+    viper.OnConfigChange(func(in fsnotify.Event) {
+        fmt.Println(&quot;配置文件修改&quot;)
+    })
+    return
+}
+</code><!--]--></pre><!--]--><p><!--[-->此后使用viper.GetString()、viper.GetInt()即可获取配置参数，如<!--]--></p><!--[--><pre class="language-go" style=""><!--[--><code>viper.GetInt(&quot;app.port&quot;)
+viper.GetString(&quot;mysql.user&quot;)
+</code><!--]--></pre><!--]--><h1 id="日志"><!--[-->日志<!--]--></h1><p><!--[-->使用zap日志库<!--]--></p><!--[--><pre class="language-go" style=""><!--[--><code>package logger
+
+import (
+    &quot;net&quot;
+    &quot;net/http&quot;
+    &quot;net/http/httputil&quot;
+    &quot;os&quot;
+    &quot;runtime/debug&quot;
+    &quot;strings&quot;
+    &quot;time&quot;
+
+    &quot;github.com/gin-gonic/gin&quot;
+    &quot;github.com/spf13/viper&quot;
+    &quot;go.uber.org/zap&quot;
+    &quot;go.uber.org/zap/zapcore&quot;
+    &quot;gopkg.in/natefinch/lumberjack.v2&quot;
+)
+
+// var lg *zap.Logger
+
+// Init 初始化Logger
+func Init() (err error) {
+    writeSyncer := getLogWriter(
+        viper.GetString(&quot;log.filename&quot;),
+        viper.GetInt(&quot;max_size&quot;),
+        viper.GetInt(&quot;max_backups&quot;),
+        viper.GetInt(&quot;max_age&quot;),
+    )
+    encoder := getEncoder()
+    var l = new(zapcore.Level)
+    err = l.UnmarshalText([]byte(viper.GetString(&quot;log.level&quot;)))
+    if err != nil {
+        return
+    }
+    var core zapcore.Core
+    if viper.GetString(&quot;app.mode&quot;) == &quot;dev&quot; {
+        // 开发模式，日志输出到终端
+        consoleEncoder := zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())
+        core = zapcore.NewTee(
+            zapcore.NewCore(encoder, writeSyncer, l),
+            zapcore.NewCore(consoleEncoder, zapcore.Lock(os.Stdout), zapcore.DebugLevel),
+        )
+    } else {
+        // 非开发模式，日志只输出到文件
+        core = zapcore.NewCore(encoder, writeSyncer, l)
+    }
+
+    lg := zap.New(core, zap.AddCaller())
+    zap.ReplaceGlobals(lg) // 替换zap包中全局的logger实例，后续在其他包中只需使用zap.L()调用即可
+    return
+}
+
+func getEncoder() zapcore.Encoder {
+    encoderConfig := zap.NewProductionEncoderConfig()
+    encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
+    encoderConfig.TimeKey = &quot;time&quot;
+    encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder
+    encoderConfig.EncodeDuration = zapcore.SecondsDurationEncoder
+    encoderConfig.EncodeCaller = zapcore.ShortCallerEncoder
+    return zapcore.NewJSONEncoder(encoderConfig)
+}
+
+func getLogWriter(filename string, maxSize, maxBackup, maxAge int) zapcore.WriteSyncer {
+    lumberJackLogger := &amp;lumberjack.Logger{
+        Filename:   filename,
+        MaxSize:    maxSize,
+        MaxBackups: maxBackup,
+        MaxAge:     maxAge,
+    }
+    return zapcore.AddSync(lumberJackLogger)
+}
+
+// GinLogger 接收gin框架默认的日志
+func GinLogger() gin.HandlerFunc {
+    return func(c *gin.Context) {
+        start := time.Now()
+        path := c.Request.URL.Path
+        query := c.Request.URL.RawQuery
+        c.Next()
+
+        cost := time.Since(start)
+        zap.L().Info(path,
+            zap.Int(&quot;status&quot;, c.Writer.Status()),
+            zap.String(&quot;method&quot;, c.Request.Method),
+            zap.String(&quot;path&quot;, path),
+            zap.String(&quot;query&quot;, query),
+            zap.String(&quot;ip&quot;, c.ClientIP()),
+            zap.String(&quot;user-agent&quot;, c.Request.UserAgent()),
+            zap.String(&quot;errors&quot;, c.Errors.ByType(gin.ErrorTypePrivate).String()),
+            zap.Duration(&quot;cost&quot;, cost),
+        )
+    }
+}
+
+// GinRecovery recover掉项目可能出现的panic，并使用zap记录相关日志
+func GinRecovery(stack bool) gin.HandlerFunc {
+    return func(c *gin.Context) {
+        defer func() {
+            if err := recover(); err != nil {
+                // Check for a broken connection, as it is not really a
+                // condition that warrants a panic stack trace.
+                var brokenPipe bool
+                if ne, ok := err.(*net.OpError); ok {
+                    if se, ok := ne.Err.(*os.SyscallError); ok {
+                        if strings.Contains(strings.ToLower(se.Error()), &quot;broken pipe&quot;) || strings.Contains(strings.ToLower(se.Error()), &quot;connection reset by peer&quot;) {
+                            brokenPipe = true
+                        }
+                    }
+                }
+
+                httpRequest, _ := httputil.DumpRequest(c.Request, false)
+                if brokenPipe {
+                    zap.L().Error(c.Request.URL.Path,
+                        zap.Any(&quot;error&quot;, err),
+                        zap.String(&quot;request&quot;, string(httpRequest)),
+                    )
+                    // If the connection is dead, we can&#39;t write a status to it.
+                    c.Error(err.(error)) // nolint: errcheck
+                    c.Abort()
+                    return
+                }
+
+                if stack {
+                    zap.L().Error(&quot;[Recovery from panic]&quot;,
+                        zap.Any(&quot;error&quot;, err),
+                        zap.String(&quot;request&quot;, string(httpRequest)),
+                        zap.String(&quot;stack&quot;, string(debug.Stack())),
+                    )
+                } else {
+                    zap.L().Error(&quot;[Recovery from panic]&quot;,
+                        zap.Any(&quot;error&quot;, err),
+                        zap.String(&quot;request&quot;, string(httpRequest)),
+                    )
+                }
+                c.AbortWithStatus(http.StatusInternalServerError)
+            }
+        }()
+        c.Next()
+    }
+}
+</code><!--]--></pre><!--]--><p><!--[-->比较繁琐，之后使用zap.L().Error()即可打印错误日志信息<!--]--></p><h1 id="数据库初始化"><!--[-->数据库初始化<!--]--></h1><p><!--[-->使用sqlx<!--]--></p><!--[--><pre class="language-go" style=""><!--[--><code>
+import (
+    &quot;fmt&quot;
+
+    &quot;github.com/jmoiron/sqlx&quot;
+    &quot;github.com/spf13/viper&quot;
+    &quot;go.uber.org/zap&quot;
+
+    _ &quot;github.com/go-sql-driver/mysql&quot;
+)
+
+var db *sqlx.DB
+
+func Init() (err error) {
+    // dsn := &quot;user:password@tcp(127.0.0.1:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;
+    dsn := fmt.Sprintf(&quot;%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&amp;parseTime=True&quot;,
+        viper.GetString(&quot;mysql.user&quot;),
+        viper.GetString(&quot;mysql.password&quot;),
+        viper.GetString(&quot;mysql.host&quot;),
+        viper.GetString(&quot;mysql.port&quot;),
+        viper.GetString(&quot;mysql.dbname&quot;),
+    )
+    // 也可以使用MustConnect连接不成功就panic
+    db, err = sqlx.Connect(&quot;mysql&quot;, dsn)
+    if err != nil {
+        zap.L().Error(&quot;connect DB failed&quot;, zap.Error(err))
+        return
+    }
+    db.SetMaxOpenConns(viper.GetInt(&quot;mysql.max_open_conns&quot;))
+    db.SetMaxIdleConns(viper.GetInt(&quot;mysql.max_idle_conns&quot;))
+    return
+}
+
+func Close() {
+    _ = db.Close()
+}
+</code><!--]--></pre><!--]--><p><!--[-->使用gorm<!--]--></p><!--[--><pre class="language-go" style=""><!--[--><code>// 全局变量，db和error在其他文件里也需要使用
+var db  *gorm.DB
+
+func Init() (err error){
+    //使用占位符，然后用setting.go里的配置参数来替代
+    dsn := fmt.Sprintf(&quot;%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&amp;parseTime=True&quot;,
+        viper.GetString(&quot;mysql.user&quot;),
+        viper.GetString(&quot;mysql.password&quot;),
+        viper.GetString(&quot;mysql.host&quot;),
+        viper.GetString(&quot;mysql.port&quot;),
+        viper.GetString(&quot;mysql.dbname&quot;),
+    )
+    db, err = gorm.Open(postgres.Open(dsn), &amp;gorm.Config{
+        //禁用默认表名的复数形式
+        NamingStrategy: schema.NamingStrategy{SingularTable: true},
+    })
+    // if err != nil {
+    //  fmt.Println(&quot;数据库连接失败，请检查连接参数&quot;, err)
+    // }
+    if err != nil {
+        zap.L().Error(&quot;connect DB failed&quot;, zap.Error(err))
+        return
+    }
+
+    //
+
+    //数据库自动迁移，括号内的参数为需要构建的数据模型结构体
+    db.AutoMigrate()
+
+    sqlDB, err := db.DB()
+    if err != nil {
+        // fmt.Println(&quot;数据库连接设置出错，请检查连接参数&quot;, err)
+        zap.L().Error(&quot;connect DB failed&quot;, zap.Error(err))
+        return
+    }
+    // 以下这些参数可以写到配置文件里，然后使用 viper 来加载
+    // SetMaxIdleConns 设置空闲连接池中连接的最大数量
+    sqlDB.SetMaxIdleConns(50) //50可替换为 viper.GetInt(&quot;mysql.max_idle_conns&quot;),下同
+
+    // SetMaxOpenConns 设置打开数据库连接的最大数量。
+    sqlDB.SetMaxOpenConns(200)
+
+    // SetConnMaxLifetime 设置了连接可复用的最大时间。
+    //不能超过 gin 框架的连接超时时间
+    sqlDB.SetConnMaxLifetime(10 * time.Second)
+
+    //sqlDB.Close()
+}
+
+func Close() {
+    _ = db.Close()
+}
+</code><!--]--></pre><!--]--><h1 id="错误处理约定状态码"><!--[-->错误处理/约定状态码<!--]--></h1><!--[--><pre class="language-go" style=""><!--[--><code>const (
+    SUCCESS = 200
+    ERROR   = 500
+    //约定状态码
+    //code=1000...用户模块错误
+    ERROR_USERNAME_USED  = 1001
+    ERROR_PASSWORD_WRONG = 1002
+    ERROR_USER_NOT_EXIST = 1003
+
+    ERROR_TOKEN_NOT_EXIST = 1004
+    ERROR_TOKEN_OUT_TIME  = 1005
+    ERROR_TOKEN_WRONG     = 1006
+    ERROR_TYPE_WRONG      = 1007
+
+    //code=2000...文章模块错误
+
+    //code=3000...分类模块错误
+
+    // 等等
+)
+
+
+var codeMsg = map[int]string{
+    SUCCESS:               &quot;OK&quot;,
+    ERROR:                 &quot;FAIL&quot;,
+    ERROR_USERNAME_USED:   &quot;该用户名已存在&quot;,
+    ERROR_PASSWORD_WRONG:  &quot;密码错误&quot;,
+    ERROR_USER_NOT_EXIST:  &quot;用户不存在&quot;,
+    ERROR_TOKEN_NOT_EXIST: &quot;token不存在&quot;,
+    ERROR_TOKEN_OUT_TIME:  &quot;token已过期&quot;,
+    ERROR_TOKEN_WRONG:     &quot;token错误&quot;,
+    ERROR_TYPE_WRONG:      &quot; token格式错误&quot;,
+}
+
+// GetErrMsg 根据状态码获取对应的信息信息
+func GetErrMsg(code int) string {
+    return codeMsg[code]
+}
+</code><!--]--></pre><!--]--><h1 id="路由接口"><!--[-->路由接口<!--]--></h1><p><!--[-->在 api/v1 创建控制数据模型的接口 user.go、article.go、category.go，以及控制登录的接口 login.go
+以用户模块为例<!--]--></p><!--[--><pre class="language-go" style=""><!--[--><code>//查询用户是否存在
+func UserExist(ctx *gin.Context) {
+
+}
+//查询用户
+//查询用户列表
+func GetUsers(ctx *gin.Context) {
+
+}
+//添加用户
+func AddUser(ctx *gin.Context) {
+
+}
+//编辑用户
+func EditUser(ctx *gin.Context) {
+
+}
+//删除用户
+func DeleteUser(ctx *gin.Context) {
+
+}
+</code><!--]--></pre><!--]--><p><!--[-->在 routes/routes.go 的 v1 路由组中创建路由接口<!--]--></p><!--[--><pre class="language-go" style=""><!--[--><code>router := r.Group(&quot;api/v1&quot;)
+    {
+        // User 用户模块路由接口
+        router.POST(&quot;user/add&quot;, v1.AddUser)
+        router.GET(&quot;users&quot;, v1.GetUsers)
+        router.PUT(&quot;user/:id&quot;, v1.EditUser)
+        router.DELETE(&quot;user/:id&quot;, v1.DeleteUser)
+
+        // 其他模块路由接口
+
+        // 其他模块路由接口
+    }
+</code><!--]--></pre><!--]--><h1 id="主函数"><!--[-->主函数<!--]--></h1><!--[--><pre class="language-go" style=""><!--[--><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;net/http&quot;
+
+    &quot;web_app/dao/mysql&quot;
+    &quot;web_app/dao/redis&quot;
+    &quot;web_app/logger&quot;
+    &quot;web_app/pkg/snowflake&quot;
+    &quot;web_app/routes&quot;
+    &quot;web_app/settings&quot;
+
+    // &quot;web_app/pkg/snowflake&quot;
+
+    &quot;context&quot;
+
+    &quot;github.com/spf13/viper&quot;
+    &quot;go.uber.org/zap&quot;
+
+    &quot;os&quot;
+    &quot;os/signal&quot;
+    &quot;syscall&quot;
+    &quot;time&quot;
+    // &quot;github.com/gin-gonic/gin&quot;
+)
+
+// Go Web 开发通用脚手架模板
+
+func main() {
+    // 1. 加载配置
+    if err := settings.Init(); err != nil {
+        fmt.Println(&quot;settings.Init() 加载配置失败:&quot;, err)
+        return
+    }
+    // 2. 初始化日志
+    if err := logger.Init(); err != nil {
+        fmt.Println(&quot;logger.Init() 初始化日志失败:&quot;, err)
+        return
+    }
+    // 延迟日志
+    defer zap.L().Sync()
+    zap.L().Debug(&quot;logger init success ...&quot;)
+    // 3. 初始化 MySQL 连接
+    if err := mysql.Init(); err != nil {
+        fmt.Println(&quot;mysql.Init() 初始化mysql数据库失败:&quot;, err)
+        return
+    }
+    defer mysql.Close()
+
+    // 4. 初始化 Redis 连接
+    if err := redis.Init(); err != nil {
+        fmt.Println(&quot;redis.Init() 初始化redis数据库失败:&quot;, err)
+        return
+    }
+    defer redis.Close()
+
+    // 5. 注册路由
+    r := routes.Setup()
+    // 6. 启动服务 （优雅关机）
+
+    srv := &amp;http.Server{
+        Addr:    fmt.Sprintf(&quot;:%d&quot;, viper.GetInt(&quot;app.port&quot;)),
+        Handler: r,
+    }
+
+    go func() {
+        // 开启一个goroutine启动服务
+        if err := srv.ListenAndServe(); err != nil &amp;&amp; err != http.ErrServerClosed {
+            zap.L().Fatal(&quot;listen: %s\n&quot;, zap.Error(err))
+        }
+    }()
+
+    // 等待中断信号来优雅地关闭服务器，为关闭服务器操作设置一个5秒的超时
+    quit := make(chan os.Signal, 1) // 创建一个接收信号的通道
+    signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM) // 此处不会阻塞
+    &lt;-quit                                               // 阻塞在此，当接收到上述两种信号时才会往下执行
+    zap.L().Info(&quot;Shutdown Server ...&quot;)
+    // 创建一个5秒超时的context
+    ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+    defer cancel()
+    // 5秒内优雅关闭服务（将未处理完的请求处理完再关闭服务），超过5秒就超时退出
+    if err := srv.Shutdown(ctx); err != nil {
+        zap.L().Fatal(&quot;Server Shutdown: &quot;, zap.Error(err))
+    }
+
+    zap.L().Info(&quot;Server exiting&quot;)
+}
+</code><!--]--></pre><!--]--></div><hr><!----></article><!--]--></main><!--]--></div></div></div><div id="teleports"></div><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__">[["ShallowReactive",1],{"prerenderedAt":2,"data":3,"state":323,"once":325,"_errors":326,"serverRendered":329,"path":330},1758123898540,["ShallowReactive",4],{"content-query-Wfjch6FIns":5},{"_path":6,"_dir":7,"_draft":8,"_partial":8,"_locale":9,"title":10,"description":11,"subtitle":12,"index":13,"date":14,"lunar_date":15,"year":16,"month":17,"month_en":18,"day":19,"tag":20,"tag_en":21,"cover":22,"categories":23,"body":24,"_type":317,"_id":318,"_source":319,"_file":320,"_stem":321,"_extension":322},"/essay/38.go项目框架及规范","essay",false,"","go 项目框架及规范","个人觉得比较不错的规范，四处偷师得来的","goプロジェクトの枠組みと規範",38,"2023-06-15 10:32:44","四月廿八",2023,"06","Jun","15","技术","TECH","/img/rabbit/038.jpg","golang",{"type":25,"children":26,"toc":313},"root",[27,34,40,53,80,131,143,148,153,164,169,180,185,194,199,204,213,218,223,228,237,242,251,257,266,271,276,285,290,299,304],{"type":28,"tag":29,"props":30,"children":31},"element","p",{},[32],{"type":33,"value":11},"text",{"type":28,"tag":35,"props":36,"children":38},"h1",{"id":37},"项目结构与分层",[39],{"type":33,"value":37},{"type":28,"tag":41,"props":42,"children":47},"pre",{"className":43,"code":45,"language":46,"meta":9},[44],"language-bash","├─controller\n├─dao\n│  ├─mysql\n│  └─redis\n├─logger\n├─logic\n├─middlewares\n├─models\n├─utils\n│  ├─jwt\n│  └─snowflake\n├─routes\n└─settings\n","bash",[48],{"type":28,"tag":49,"props":50,"children":51},"code",{"__ignoreMap":9},[52],{"type":33,"value":45},{"type":28,"tag":29,"props":54,"children":55},{},[56,62,64,70,72,78],{"type":28,"tag":49,"props":57,"children":59},{"className":58},[],[60],{"type":33,"value":61},"controller",{"type":33,"value":63},": 请求处理与参数校验\n",{"type":28,"tag":49,"props":65,"children":67},{"className":66},[],[68],{"type":33,"value":69},"logic",{"type":33,"value":71},": 业务逻辑的实现，也叫 service 层\n",{"type":28,"tag":49,"props":73,"children":75},{"className":74},[],[76],{"type":33,"value":77},"dao",{"type":33,"value":79},": 对数据库的相关操作",{"type":28,"tag":29,"props":81,"children":82},{},[83,89,91,97,99,105,107,113,115,121,123,129],{"type":28,"tag":49,"props":84,"children":86},{"className":85},[],[87],{"type":33,"value":88},"model",{"type":33,"value":90},": 数据模型\n",{"type":28,"tag":49,"props":92,"children":94},{"className":93},[],[95],{"type":33,"value":96},"routes",{"type":33,"value":98},": 路由接口\n",{"type":28,"tag":49,"props":100,"children":102},{"className":101},[],[103],{"type":33,"value":104},"settings",{"type":33,"value":106},": 配置的加载\n",{"type":28,"tag":49,"props":108,"children":110},{"className":109},[],[111],{"type":33,"value":112},"middlewares",{"type":33,"value":114},": 中间件\n",{"type":28,"tag":49,"props":116,"children":118},{"className":117},[],[119],{"type":33,"value":120},"utils",{"type":33,"value":122},": 自定义功能的工具库，方便调用\n",{"type":28,"tag":49,"props":124,"children":126},{"className":125},[],[127],{"type":33,"value":128},"logger",{"type":33,"value":130},": 日志库的封装",{"type":28,"tag":29,"props":132,"children":133},{},[134],{"type":28,"tag":135,"props":136,"children":140},"a",{"href":137,"rel":138},"https://github.com/foldleaf/go_web_template",[139],"nofollow",[141],{"type":33,"value":142},"项目地址",{"type":28,"tag":35,"props":144,"children":146},{"id":145},"配置文件的加载",[147],{"type":33,"value":145},{"type":28,"tag":29,"props":149,"children":150},{},[151],{"type":33,"value":152},"示例配置",{"type":28,"tag":41,"props":154,"children":159},{"className":155,"code":157,"language":158,"meta":9},[156],"language-yaml","app:\n  name: \"web_app\"\n  mode: \"dev\"\n  port: 8081\n  start_time: \"2023-01-01\"\n  machine_id: 1\n\nlog:\n  # 日志级别\n  level: \"debug\"\n  #文件名\n  filename: \"web_app.log\"\n  # 文件最大大小（M）\n  max_size: 200\n  # 文件最大保存天数\n  max_age: 30\n  # 文件备份数量\n  max_backups: 7\n  \n\nmysql:\n  host: \"127.0.0.1\"\n  port: 3306\n  user: \"root\"\n  password: \"mysql123\"\n  dbname: \"sql_demo\"\n  # 最大连接数\n  max_open_conns: 200\n  # 空闲连接数\n  max_idle_conns: 50\n\n\nredis:\n  host: \"127.0.0.1\"\n  port: 6379\n  password: \"\"\n  db: 0\n  pool_size: 100\n","yaml",[160],{"type":28,"tag":49,"props":161,"children":162},{"__ignoreMap":9},[163],{"type":33,"value":157},{"type":28,"tag":29,"props":165,"children":166},{},[167],{"type":33,"value":168},"使用viper加载配置",{"type":28,"tag":41,"props":170,"children":175},{"className":171,"code":173,"language":174,"meta":9},[172],"language-go","package settings\n\nimport (\n    \"fmt\"\n    \"github.com/fsnotify/fsnotify\"\n    \"github.com/spf13/viper\"\n)\n\nfunc Init() (err error) {\n    // viper.SetConfigFile(\"config.yaml\")   //指定文件加后缀\n    viper.SetConfigName(\"config\") // 指定配置文件名称，不需要带后缀，会自动识别指定目录下相同的文件名\n    viper.SetConfigType(\"yaml\")   //指定配置文件类型，用于远程获取配置，本地时不生效\n    viper.AddConfigPath(\".\")      //指定查找配置文件的路径（这里用相对路径）\n    err = viper.ReadInConfig()    //读取文件配置\n    if err != nil {\n        // 读取配置信息失败\n        fmt.Println(\"viper.ReadInConfig() 读取配置信息失败:\", err)\n        return\n    }\n\n    viper.WatchConfig()\n    viper.OnConfigChange(func(in fsnotify.Event) {\n        fmt.Println(\"配置文件修改\")\n    })\n    return\n}\n","go",[176],{"type":28,"tag":49,"props":177,"children":178},{"__ignoreMap":9},[179],{"type":33,"value":173},{"type":28,"tag":29,"props":181,"children":182},{},[183],{"type":33,"value":184},"此后使用viper.GetString()、viper.GetInt()即可获取配置参数，如",{"type":28,"tag":41,"props":186,"children":189},{"className":187,"code":188,"language":174,"meta":9},[172],"viper.GetInt(\"app.port\")\nviper.GetString(\"mysql.user\")\n",[190],{"type":28,"tag":49,"props":191,"children":192},{"__ignoreMap":9},[193],{"type":33,"value":188},{"type":28,"tag":35,"props":195,"children":197},{"id":196},"日志",[198],{"type":33,"value":196},{"type":28,"tag":29,"props":200,"children":201},{},[202],{"type":33,"value":203},"使用zap日志库",{"type":28,"tag":41,"props":205,"children":208},{"className":206,"code":207,"language":174,"meta":9},[172],"package logger\n\nimport (\n    \"net\"\n    \"net/http\"\n    \"net/http/httputil\"\n    \"os\"\n    \"runtime/debug\"\n    \"strings\"\n    \"time\"\n\n    \"github.com/gin-gonic/gin\"\n    \"github.com/spf13/viper\"\n    \"go.uber.org/zap\"\n    \"go.uber.org/zap/zapcore\"\n    \"gopkg.in/natefinch/lumberjack.v2\"\n)\n\n// var lg *zap.Logger\n\n// Init 初始化Logger\nfunc Init() (err error) {\n    writeSyncer := getLogWriter(\n        viper.GetString(\"log.filename\"),\n        viper.GetInt(\"max_size\"),\n        viper.GetInt(\"max_backups\"),\n        viper.GetInt(\"max_age\"),\n    )\n    encoder := getEncoder()\n    var l = new(zapcore.Level)\n    err = l.UnmarshalText([]byte(viper.GetString(\"log.level\")))\n    if err != nil {\n        return\n    }\n    var core zapcore.Core\n    if viper.GetString(\"app.mode\") == \"dev\" {\n        // 开发模式，日志输出到终端\n        consoleEncoder := zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())\n        core = zapcore.NewTee(\n            zapcore.NewCore(encoder, writeSyncer, l),\n            zapcore.NewCore(consoleEncoder, zapcore.Lock(os.Stdout), zapcore.DebugLevel),\n        )\n    } else {\n        // 非开发模式，日志只输出到文件\n        core = zapcore.NewCore(encoder, writeSyncer, l)\n    }\n\n    lg := zap.New(core, zap.AddCaller())\n    zap.ReplaceGlobals(lg) // 替换zap包中全局的logger实例，后续在其他包中只需使用zap.L()调用即可\n    return\n}\n\nfunc getEncoder() zapcore.Encoder {\n    encoderConfig := zap.NewProductionEncoderConfig()\n    encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder\n    encoderConfig.TimeKey = \"time\"\n    encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder\n    encoderConfig.EncodeDuration = zapcore.SecondsDurationEncoder\n    encoderConfig.EncodeCaller = zapcore.ShortCallerEncoder\n    return zapcore.NewJSONEncoder(encoderConfig)\n}\n\nfunc getLogWriter(filename string, maxSize, maxBackup, maxAge int) zapcore.WriteSyncer {\n    lumberJackLogger := &lumberjack.Logger{\n        Filename:   filename,\n        MaxSize:    maxSize,\n        MaxBackups: maxBackup,\n        MaxAge:     maxAge,\n    }\n    return zapcore.AddSync(lumberJackLogger)\n}\n\n// GinLogger 接收gin框架默认的日志\nfunc GinLogger() gin.HandlerFunc {\n    return func(c *gin.Context) {\n        start := time.Now()\n        path := c.Request.URL.Path\n        query := c.Request.URL.RawQuery\n        c.Next()\n\n        cost := time.Since(start)\n        zap.L().Info(path,\n            zap.Int(\"status\", c.Writer.Status()),\n            zap.String(\"method\", c.Request.Method),\n            zap.String(\"path\", path),\n            zap.String(\"query\", query),\n            zap.String(\"ip\", c.ClientIP()),\n            zap.String(\"user-agent\", c.Request.UserAgent()),\n            zap.String(\"errors\", c.Errors.ByType(gin.ErrorTypePrivate).String()),\n            zap.Duration(\"cost\", cost),\n        )\n    }\n}\n\n// GinRecovery recover掉项目可能出现的panic，并使用zap记录相关日志\nfunc GinRecovery(stack bool) gin.HandlerFunc {\n    return func(c *gin.Context) {\n        defer func() {\n            if err := recover(); err != nil {\n                // Check for a broken connection, as it is not really a\n                // condition that warrants a panic stack trace.\n                var brokenPipe bool\n                if ne, ok := err.(*net.OpError); ok {\n                    if se, ok := ne.Err.(*os.SyscallError); ok {\n                        if strings.Contains(strings.ToLower(se.Error()), \"broken pipe\") || strings.Contains(strings.ToLower(se.Error()), \"connection reset by peer\") {\n                            brokenPipe = true\n                        }\n                    }\n                }\n\n                httpRequest, _ := httputil.DumpRequest(c.Request, false)\n                if brokenPipe {\n                    zap.L().Error(c.Request.URL.Path,\n                        zap.Any(\"error\", err),\n                        zap.String(\"request\", string(httpRequest)),\n                    )\n                    // If the connection is dead, we can't write a status to it.\n                    c.Error(err.(error)) // nolint: errcheck\n                    c.Abort()\n                    return\n                }\n\n                if stack {\n                    zap.L().Error(\"[Recovery from panic]\",\n                        zap.Any(\"error\", err),\n                        zap.String(\"request\", string(httpRequest)),\n                        zap.String(\"stack\", string(debug.Stack())),\n                    )\n                } else {\n                    zap.L().Error(\"[Recovery from panic]\",\n                        zap.Any(\"error\", err),\n                        zap.String(\"request\", string(httpRequest)),\n                    )\n                }\n                c.AbortWithStatus(http.StatusInternalServerError)\n            }\n        }()\n        c.Next()\n    }\n}\n",[209],{"type":28,"tag":49,"props":210,"children":211},{"__ignoreMap":9},[212],{"type":33,"value":207},{"type":28,"tag":29,"props":214,"children":215},{},[216],{"type":33,"value":217},"比较繁琐，之后使用zap.L().Error()即可打印错误日志信息",{"type":28,"tag":35,"props":219,"children":221},{"id":220},"数据库初始化",[222],{"type":33,"value":220},{"type":28,"tag":29,"props":224,"children":225},{},[226],{"type":33,"value":227},"使用sqlx",{"type":28,"tag":41,"props":229,"children":232},{"className":230,"code":231,"language":174,"meta":9},[172],"\nimport (\n    \"fmt\"\n\n    \"github.com/jmoiron/sqlx\"\n    \"github.com/spf13/viper\"\n    \"go.uber.org/zap\"\n\n    _ \"github.com/go-sql-driver/mysql\"\n)\n\nvar db *sqlx.DB\n\nfunc Init() (err error) {\n    // dsn := \"user:password@tcp(127.0.0.1:3306)/sql_test?charset=utf8mb4&parseTime=True\"\n    dsn := fmt.Sprintf(\"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True\",\n        viper.GetString(\"mysql.user\"),\n        viper.GetString(\"mysql.password\"),\n        viper.GetString(\"mysql.host\"),\n        viper.GetString(\"mysql.port\"),\n        viper.GetString(\"mysql.dbname\"),\n    )\n    // 也可以使用MustConnect连接不成功就panic\n    db, err = sqlx.Connect(\"mysql\", dsn)\n    if err != nil {\n        zap.L().Error(\"connect DB failed\", zap.Error(err))\n        return\n    }\n    db.SetMaxOpenConns(viper.GetInt(\"mysql.max_open_conns\"))\n    db.SetMaxIdleConns(viper.GetInt(\"mysql.max_idle_conns\"))\n    return\n}\n\nfunc Close() {\n    _ = db.Close()\n}\n",[233],{"type":28,"tag":49,"props":234,"children":235},{"__ignoreMap":9},[236],{"type":33,"value":231},{"type":28,"tag":29,"props":238,"children":239},{},[240],{"type":33,"value":241},"使用gorm",{"type":28,"tag":41,"props":243,"children":246},{"className":244,"code":245,"language":174,"meta":9},[172],"// 全局变量，db和error在其他文件里也需要使用\nvar db  *gorm.DB\n\nfunc Init() (err error){\n    //使用占位符，然后用setting.go里的配置参数来替代\n    dsn := fmt.Sprintf(\"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True\",\n        viper.GetString(\"mysql.user\"),\n        viper.GetString(\"mysql.password\"),\n        viper.GetString(\"mysql.host\"),\n        viper.GetString(\"mysql.port\"),\n        viper.GetString(\"mysql.dbname\"),\n    )\n    db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{\n        //禁用默认表名的复数形式\n        NamingStrategy: schema.NamingStrategy{SingularTable: true},\n    })\n    // if err != nil {\n    //  fmt.Println(\"数据库连接失败，请检查连接参数\", err)\n    // }\n    if err != nil {\n        zap.L().Error(\"connect DB failed\", zap.Error(err))\n        return\n    }\n\n    //\n\n    //数据库自动迁移，括号内的参数为需要构建的数据模型结构体\n    db.AutoMigrate()\n\n    sqlDB, err := db.DB()\n    if err != nil {\n        // fmt.Println(\"数据库连接设置出错，请检查连接参数\", err)\n        zap.L().Error(\"connect DB failed\", zap.Error(err))\n        return\n    }\n    // 以下这些参数可以写到配置文件里，然后使用 viper 来加载\n    // SetMaxIdleConns 设置空闲连接池中连接的最大数量\n    sqlDB.SetMaxIdleConns(50) //50可替换为 viper.GetInt(\"mysql.max_idle_conns\"),下同\n\n    // SetMaxOpenConns 设置打开数据库连接的最大数量。\n    sqlDB.SetMaxOpenConns(200)\n\n    // SetConnMaxLifetime 设置了连接可复用的最大时间。\n    //不能超过 gin 框架的连接超时时间\n    sqlDB.SetConnMaxLifetime(10 * time.Second)\n\n    //sqlDB.Close()\n}\n\nfunc Close() {\n    _ = db.Close()\n}\n",[247],{"type":28,"tag":49,"props":248,"children":249},{"__ignoreMap":9},[250],{"type":33,"value":245},{"type":28,"tag":35,"props":252,"children":254},{"id":253},"错误处理约定状态码",[255],{"type":33,"value":256},"错误处理/约定状态码",{"type":28,"tag":41,"props":258,"children":261},{"className":259,"code":260,"language":174,"meta":9},[172],"const (\n    SUCCESS = 200\n    ERROR   = 500\n    //约定状态码\n    //code=1000...用户模块错误\n    ERROR_USERNAME_USED  = 1001\n    ERROR_PASSWORD_WRONG = 1002\n    ERROR_USER_NOT_EXIST = 1003\n\n    ERROR_TOKEN_NOT_EXIST = 1004\n    ERROR_TOKEN_OUT_TIME  = 1005\n    ERROR_TOKEN_WRONG     = 1006\n    ERROR_TYPE_WRONG      = 1007\n\n    //code=2000...文章模块错误\n\n    //code=3000...分类模块错误\n\n    // 等等\n)\n\n\nvar codeMsg = map[int]string{\n    SUCCESS:               \"OK\",\n    ERROR:                 \"FAIL\",\n    ERROR_USERNAME_USED:   \"该用户名已存在\",\n    ERROR_PASSWORD_WRONG:  \"密码错误\",\n    ERROR_USER_NOT_EXIST:  \"用户不存在\",\n    ERROR_TOKEN_NOT_EXIST: \"token不存在\",\n    ERROR_TOKEN_OUT_TIME:  \"token已过期\",\n    ERROR_TOKEN_WRONG:     \"token错误\",\n    ERROR_TYPE_WRONG:      \" token格式错误\",\n}\n\n// GetErrMsg 根据状态码获取对应的信息信息\nfunc GetErrMsg(code int) string {\n    return codeMsg[code]\n}\n",[262],{"type":28,"tag":49,"props":263,"children":264},{"__ignoreMap":9},[265],{"type":33,"value":260},{"type":28,"tag":35,"props":267,"children":269},{"id":268},"路由接口",[270],{"type":33,"value":268},{"type":28,"tag":29,"props":272,"children":273},{},[274],{"type":33,"value":275},"在 api/v1 创建控制数据模型的接口 user.go、article.go、category.go，以及控制登录的接口 login.go\n以用户模块为例",{"type":28,"tag":41,"props":277,"children":280},{"className":278,"code":279,"language":174,"meta":9},[172],"//查询用户是否存在\nfunc UserExist(ctx *gin.Context) {\n\n}\n//查询用户\n//查询用户列表\nfunc GetUsers(ctx *gin.Context) {\n\n}\n//添加用户\nfunc AddUser(ctx *gin.Context) {\n\n}\n//编辑用户\nfunc EditUser(ctx *gin.Context) {\n\n}\n//删除用户\nfunc DeleteUser(ctx *gin.Context) {\n\n}\n",[281],{"type":28,"tag":49,"props":282,"children":283},{"__ignoreMap":9},[284],{"type":33,"value":279},{"type":28,"tag":29,"props":286,"children":287},{},[288],{"type":33,"value":289},"在 routes/routes.go 的 v1 路由组中创建路由接口",{"type":28,"tag":41,"props":291,"children":294},{"className":292,"code":293,"language":174,"meta":9},[172],"router := r.Group(\"api/v1\")\n    {\n        // User 用户模块路由接口\n        router.POST(\"user/add\", v1.AddUser)\n        router.GET(\"users\", v1.GetUsers)\n        router.PUT(\"user/:id\", v1.EditUser)\n        router.DELETE(\"user/:id\", v1.DeleteUser)\n\n        // 其他模块路由接口\n\n        // 其他模块路由接口\n    }\n",[295],{"type":28,"tag":49,"props":296,"children":297},{"__ignoreMap":9},[298],{"type":33,"value":293},{"type":28,"tag":35,"props":300,"children":302},{"id":301},"主函数",[303],{"type":33,"value":301},{"type":28,"tag":41,"props":305,"children":308},{"className":306,"code":307,"language":174,"meta":9},[172],"package main\n\nimport (\n    \"fmt\"\n    \"net/http\"\n\n    \"web_app/dao/mysql\"\n    \"web_app/dao/redis\"\n    \"web_app/logger\"\n    \"web_app/pkg/snowflake\"\n    \"web_app/routes\"\n    \"web_app/settings\"\n\n    // \"web_app/pkg/snowflake\"\n\n    \"context\"\n\n    \"github.com/spf13/viper\"\n    \"go.uber.org/zap\"\n\n    \"os\"\n    \"os/signal\"\n    \"syscall\"\n    \"time\"\n    // \"github.com/gin-gonic/gin\"\n)\n\n// Go Web 开发通用脚手架模板\n\nfunc main() {\n    // 1. 加载配置\n    if err := settings.Init(); err != nil {\n        fmt.Println(\"settings.Init() 加载配置失败:\", err)\n        return\n    }\n    // 2. 初始化日志\n    if err := logger.Init(); err != nil {\n        fmt.Println(\"logger.Init() 初始化日志失败:\", err)\n        return\n    }\n    // 延迟日志\n    defer zap.L().Sync()\n    zap.L().Debug(\"logger init success ...\")\n    // 3. 初始化 MySQL 连接\n    if err := mysql.Init(); err != nil {\n        fmt.Println(\"mysql.Init() 初始化mysql数据库失败:\", err)\n        return\n    }\n    defer mysql.Close()\n\n    // 4. 初始化 Redis 连接\n    if err := redis.Init(); err != nil {\n        fmt.Println(\"redis.Init() 初始化redis数据库失败:\", err)\n        return\n    }\n    defer redis.Close()\n\n    // 5. 注册路由\n    r := routes.Setup()\n    // 6. 启动服务 （优雅关机）\n\n    srv := &http.Server{\n        Addr:    fmt.Sprintf(\":%d\", viper.GetInt(\"app.port\")),\n        Handler: r,\n    }\n\n    go func() {\n        // 开启一个goroutine启动服务\n        if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {\n            zap.L().Fatal(\"listen: %s\\n\", zap.Error(err))\n        }\n    }()\n\n    // 等待中断信号来优雅地关闭服务器，为关闭服务器操作设置一个5秒的超时\n    quit := make(chan os.Signal, 1) // 创建一个接收信号的通道\n    signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM) // 此处不会阻塞\n    \u003C-quit                                               // 阻塞在此，当接收到上述两种信号时才会往下执行\n    zap.L().Info(\"Shutdown Server ...\")\n    // 创建一个5秒超时的context\n    ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)\n    defer cancel()\n    // 5秒内优雅关闭服务（将未处理完的请求处理完再关闭服务），超过5秒就超时退出\n    if err := srv.Shutdown(ctx); err != nil {\n        zap.L().Fatal(\"Server Shutdown: \", zap.Error(err))\n    }\n\n    zap.L().Info(\"Server exiting\")\n}\n",[309],{"type":28,"tag":49,"props":310,"children":311},{"__ignoreMap":9},[312],{"type":33,"value":307},{"title":9,"searchDepth":314,"depth":315,"links":316},2,3,[],"markdown","content:essay:38.go项目框架及规范.md","content","essay/38.go项目框架及规范.md","essay/38.go项目框架及规范","md",["Reactive",324],{},["Set"],["ShallowReactive",327],{"content-query-Wfjch6FIns":328},null,true,"/essay/38.go%E9%A1%B9%E7%9B%AE%E6%A1%86%E6%9E%B6%E5%8F%8A%E8%A7%84%E8%8C%83"]</script>
+<script>window.__NUXT__={};window.__NUXT__.config={public:{mdc:{components:{prose:true,map:{p:"prose-p",a:"prose-a",blockquote:"prose-blockquote","code-inline":"prose-code-inline",code:"ProseCodeInline",em:"prose-em",h1:"prose-h1",h2:"prose-h2",h3:"prose-h3",h4:"prose-h4",h5:"prose-h5",h6:"prose-h6",hr:"prose-hr",img:"prose-img",ul:"prose-ul",ol:"prose-ol",li:"prose-li",strong:"prose-strong",table:"prose-table",thead:"prose-thead",tbody:"prose-tbody",td:"prose-td",th:"prose-th",tr:"prose-tr"}},headings:{anchorLinks:{h1:false,h2:true,h3:true,h4:true,h5:false,h6:false}}},content:{locales:[],defaultLocale:"",integrity:1758123881472,experimental:{stripQueryParameters:false,advanceQuery:false,clientDB:false},respectPathCase:false,api:{baseURL:"/api/_content"},navigation:{fields:[]},tags:{p:"prose-p",a:"prose-a",blockquote:"prose-blockquote","code-inline":"prose-code-inline",code:"ProseCodeInline",em:"prose-em",h1:"prose-h1",h2:"prose-h2",h3:"prose-h3",h4:"prose-h4",h5:"prose-h5",h6:"prose-h6",hr:"prose-hr",img:"prose-img",ul:"prose-ul",ol:"prose-ol",li:"prose-li",strong:"prose-strong",table:"prose-table",thead:"prose-thead",tbody:"prose-tbody",td:"prose-td",th:"prose-th",tr:"prose-tr"},highlight:false,wsUrl:"",documentDriven:false,host:"",trailingSlash:false,search:"",contentHead:true,anchorLinks:{depth:4,exclude:[1]}}},app:{baseURL:"/",buildId:"9dcb8f7a-67a6-4558-a09e-619b477e7690",buildAssetsDir:"/_nuxt/",cdnURL:"/"}}</script></body></html>
